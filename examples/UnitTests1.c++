@@ -52,11 +52,11 @@ TEST(UnitTestsFixture, test_3) {
 
 
 
-% UnitTests1
+% ./UnitTests1
 Running main() from gtest_main.cc
 [==========] Running 3 tests from 1 test case.
 [----------] Global test environment set-up.
 [----------] 3 tests from UnitTestsFixture
 [ RUN      ] UnitTestsFixture.test_1
-Assertion failed: (c > 0), function cycle_length, file UnitTests1.c++, line 23.
+UnitTests1: UnitTests1.c++:23: int cycle_length(int): Assertion `c > 0' failed.
 */

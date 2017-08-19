@@ -29,7 +29,7 @@ TEST(CoverageFixture, test) {
 
 
 
-% Coverage1
+% ./Coverage1
 Running main() from gtest_main.cc
 [==========] Running 1 test from 1 test case.
 [----------] Global test environment set-up.
@@ -39,16 +39,14 @@ Running main() from gtest_main.cc
 [----------] 1 test from CoverageFixture (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test case ran. (1 ms total)
+[==========] 1 test from 1 test case ran. (0 ms total)
 [  PASSED  ] 1 test.
 
-
-
-% gcov -b Coverage1.c++ | grep -A 5 "File './Coverage1.h'"
-File './Coverage1.h'
-Lines executed:55.56% of 9
-Branches executed:75.00% of 8
-Taken at least once:37.50% of 8
-No calls
-./Coverage1.h:creating 'Coverage1.h.gcov'
+gcov -b Coverage1.c++ | grep -A 5 "File 'Coverage1.c++'"
+File 'Coverage1.c++'
+Lines executed:66.67% of 12
+Branches executed:70.59% of 34
+Taken at least once:35.29% of 34
+Calls executed:55.88% of 34
+Creating 'Coverage1.c++.gcov'
 */

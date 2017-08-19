@@ -33,26 +33,7 @@ TEST(UnitTestsFixture, test_3) {
     ASSERT_EQ(7, cycle_length(10));}
 
 /*
-% locate libgtest.a
-/lusr/lib/libgtest.a
-
-
-
-% locate libgtest_main.a
-/lusr/lib/libgtest_main.a
-
-
-
-% locate libpthread.a
-/usr/lib/x86_64-linux-gnu/libpthread.a
-
-
-
-% g++ -pedantic -std=c++14 -Wall UnitTests2.c++ -o UnitTests2 -lgtest -lgtest_main -pthread
-
-
-
-% UnitTests2
+% ./UnitTests2
 Running main() from gtest_main.cc
 [==========] Running 3 tests from 1 test case.
 [----------] Global test environment set-up.
@@ -60,7 +41,7 @@ Running main() from gtest_main.cc
 [ RUN      ] UnitTestsFixture.test_1
 [       OK ] UnitTestsFixture.test_1 (0 ms)
 [ RUN      ] UnitTestsFixture.test_2
-UnitTests2.c++:20: Failure
+UnitTests2.c++:30: Failure
       Expected: 5
 To be equal to: cycle_length( 5)
       Which is: 6

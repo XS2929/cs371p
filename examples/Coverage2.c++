@@ -25,11 +25,7 @@ TEST(CoverageFixture, test) {
     ASSERT_EQ(2, cycle_length(2));}
 
 /*
-% g++ -fprofile-arcs -ftest-coverage -pedantic -std=c++14 -Wall Coverage2.c++ -o Coverage2 -lgtest -lgtest_main -pthread
-
-
-
-% Coverage2
+% ./Coverage2
 Running main() from gtest_main.cc
 [==========] Running 1 test from 1 test case.
 [----------] Global test environment set-up.
@@ -42,13 +38,11 @@ Running main() from gtest_main.cc
 [==========] 1 test from 1 test case ran. (0 ms total)
 [  PASSED  ] 1 test.
 
-
-
-% gcov -b Coverage2.c++ | grep -A 5 "File './Coverage2.h'"
-File './Coverage2.h'
-Lines executed:88.89% of 9
-Branches executed:100.00% of 8
-Taken at least once:62.50% of 8
-No calls
-./Coverage2.h:creating 'Coverage2.h.gcov'
+gcov -b Coverage2.c++ | grep -A 5 "File 'Coverage2.c++'"
+File 'Coverage2.c++'
+Lines executed:91.67% of 12
+Branches executed:76.47% of 34
+Taken at least once:41.18% of 34
+Calls executed:55.88% of 34
+Creating 'Coverage2.c++.gcov'
 */

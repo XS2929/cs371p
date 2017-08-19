@@ -9,7 +9,7 @@
 
 int cycle_length (int n) {
     assert(n > 0);
-    int c = 1;
+    int c = 0;
     while (n > 1) {
         if ((n % 2) == 0)
             n = (n / 2);
@@ -34,12 +34,12 @@ int main () {
 % g++ -pedantic -std=c++14 -Wall -Weffc++ Assertions.c++ -o Assertions
 % ./Assertions
 Assertions.c++
-Assertion failed: (c > 0), function cycle_length, file Assertions.c++, line 19.
+Assertions: Assertions.c++:19: int cycle_length(int): Assertion `c > 0' failed.
 
 
 
 % g++ -pedantic -std=c++14 -DNDEBUG -Wall -Weffc++ Assertions.c++ -o Assertions
-% Assertions
+% ./Assertions
 Assertions.c++
 Done.
 */
