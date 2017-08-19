@@ -107,6 +107,7 @@ sync:
 	@rsync -r -t -u -v --delete              \
     --include "Docker.txt"                   \
     --include "Hello.c++"                    \
+    --include "Assertions.c++"               \
     --include "UnitTests1.c++"               \
     --include "UnitTests2.c++"               \
     --include "UnitTests3.c++"               \
