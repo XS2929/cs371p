@@ -113,6 +113,7 @@ sync:
     --include "Coverage1.c++"                \
     --include "Coverage2.c++"                \
     --include "Coverage3.c++"                \
+    --include "BoostSerialization.c++"       \
     --exclude "*"                            \
     ../../examples/c++/ examples
 
