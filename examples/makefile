@@ -27,7 +27,7 @@ ifeq ($(shell uname), Darwin)                                           # Apple
     CXXFLAGS     := -pedantic -std=c++14 -Wall -Weffc++
     LIBB         := /usr/local/lib
     LIBG         := /usr/local/lib
-    LDFLAGS      := -lboost_serialization -lgtest -lgtest_main
+    LDFLAGS      := -lgtest -lgtest_main
     CLANG-CHECK  := clang-check
     GCOV         := gcov
     GCOVFLAGS    := -fprofile-arcs -ftest-coverage
@@ -40,7 +40,7 @@ else ifeq ($(CI), true)                                                 # Travis
     CXXFLAGS     := -pedantic -std=c++14 -Wall -Weffc++
     LIBB         := /usr/lib
     LIBG         := $(PWD)/gtest
-    LDFLAGS      := -lboost_serialization -lgtest -lgtest_main -pthread
+    LDFLAGS      := -lgtest -lgtest_main -pthread
     CLANG-CHECK  := clang-check
     GCOV         := gcov-5
     GCOVFLAGS    := -fprofile-arcs -ftest-coverage
@@ -53,7 +53,7 @@ else ifeq ($(shell uname -p), unknown)                                  # Docker
     CXXFLAGS     := -pedantic -std=c++14 -Wall -Weffc++
     LIBB         := /usr/lib
     LIBG         := /usr/lib
-    LDFLAGS      := -lboost_serialization -lgtest -lgtest_main -pthread
+    LDFLAGS      := -lgtest -lgtest_main -pthread
     CLANG-CHECK  := clang-check
     GCOV         := gcov
     GCOVFLAGS    := -fprofile-arcs -ftest-coverage
@@ -66,7 +66,7 @@ else                                                                    # UTCS
     CXXFLAGS     := -pedantic -std=c++14 -Wall -Weffc++
     LIBB         := /usr/lib/x86_64-linux-gnu
     LIBG         := /usr/local/lib
-    LDFLAGS      := -lboost_serialization -lgtest -lgtest_main -pthread
+    LDFLAGS      := -lgtest -lgtest_main -pthread
     CLANG-CHECK  := clang-check
     GCOV         := gcov
     GCOVFLAGS    := -fprofile-arcs -ftest-coverage
