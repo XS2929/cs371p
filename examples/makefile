@@ -5,21 +5,7 @@ FILES :=                \
     UnitTests3          \
     Coverage1           \
     Coverage2           \
-    Coverage3           \
-
-#    Exceptions          \
-#    Variables           \
-#    Arguments           \
-#    Lambdas             \
-#    Iterators           \
-#    Consts              \
-#    Classes             \
-#    Arrays              \
-#    FunctionOverloading \
-#    Move                \
-#    MethodOverriding1   \
-#    MethodOverriding2
-#    BoostSerialization
+    Coverage3
 
 ifeq ($(shell uname), Darwin)                                           # Apple
     CXX          := g++
