@@ -75,6 +75,11 @@ else                                                                    # UTCS
     CLANG-FORMAT := clang-format-3.8
 endif
 
+BoostSerialization: BoostSerialization.c++
+	$(CXX) $(CXXFLAGS) $< -o $@ $(LDFLAGS) -lboost_serialization
+	-$(CLANG-CHECK) -extra-arg=-std=c++11          $< --
+	-$(CLANG-CHECK) -extra-arg=-std=c++11 -analyze $< --
+
 %: %.c++
 	$(CXX) $(CXXFLAGS) $< -o $@ $(LDFLAGS)
 	-$(CLANG-CHECK) -extra-arg=-std=c++11          $< --
