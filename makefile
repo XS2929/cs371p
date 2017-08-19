@@ -248,9 +248,9 @@ versions:
 	which $(CXX)
 	$(CXX) --version
 	@echo
-	ls -adl $(INCLUDE)/boost
+	ls -al $(INCLUDE)/boost/*
 	@echo
-	ls -adl $(INCLUDE)/gtest
+	ls -al $(INCLUDE)/gtest/*
 	@echo
 	-ls -al $(LIBB)/libboost_serialization.a
 	@echo

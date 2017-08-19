@@ -52,7 +52,7 @@ TEST(UnitTestsFixture, test_3) {
 
 
 
-% UnitTests3
+% ./UnitTests3
 Running main() from gtest_main.cc
 [==========] Running 3 tests from 1 test case.
 [----------] Global test environment set-up.
@@ -64,8 +64,7 @@ Running main() from gtest_main.cc
 [ RUN      ] UnitTestsFixture.test_3
 [       OK ] UnitTestsFixture.test_3 (0 ms)
 [----------] 3 tests from UnitTestsFixture (0 ms total)
-
 [----------] Global test environment tear-down
-[==========] 3 tests from 1 test case ran. (0 ms total)
+[==========] 3 tests from 1 test case ran. (1 ms total)
 [  PASSED  ] 3 tests.
 */
