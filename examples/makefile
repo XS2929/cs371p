@@ -38,7 +38,7 @@ else ifeq ($(CI), true)                                                 # Travis
     CXX          := g++-5
     INCLUDE      := /usr/include
     CXXFLAGS     := -pedantic -std=c++14 -Wall -Weffc++
-    LIBB         := /usr/lib
+    LIBB         := /usr/lib/x86_64-linux-gnu/
     LIBG         := $(PWD)/gtest
     LDFLAGS      := -lgtest -lgtest_main -pthread
     CLANG-CHECK  := clang-check
@@ -79,12 +79,13 @@ BoostSerialization: BoostSerialization.c++
 	$(CXX) $(GCOVFLAGS) $(CXXFLAGS) $< -o $@ $(LDFLAGS) -lboost_serialization
 	-$(CLANG-CHECK) -extra-arg=-std=c++11          $< --
 	-$(CLANG-CHECK) -extra-arg=-std=c++11 -analyze $< --
-	ldd BoostSerialization
+	ldd $@
 
 %: %.c++
 	$(CXX) $(GCOVFLAGS) $(CXXFLAGS) $< -o $@ $(LDFLAGS)
 	-$(CLANG-CHECK) -extra-arg=-std=c++11          $< --
 	-$(CLANG-CHECK) -extra-arg=-std=c++11 -analyze $< --
+	ldd $@
 
 %.c++x: %
 	./$<
