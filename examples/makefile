@@ -76,12 +76,12 @@ else                                                                    # UTCS
 endif
 
 BoostSerialization: BoostSerialization.c++
-	$(CXX) $(CXXFLAGS) $< -o $@ $(LDFLAGS)
+	$(CXX) $(GCOVFLAGS) $(CXXFLAGS) $< -o $@ $(LDFLAGS)
 	-$(CLANG-CHECK) -extra-arg=-std=c++11          $< --
 	-$(CLANG-CHECK) -extra-arg=-std=c++11 -analyze $< --
 
 %: %.c++
-	$(CXX) $(CXXFLAGS) $< -o $@ $(LDFLAGS)
+	$(CXX) $(GCOVFLAGS) $(CXXFLAGS) $< -o $@ $(LDFLAGS)
 	-$(CLANG-CHECK) -extra-arg=-std=c++11          $< --
 	-$(CLANG-CHECK) -extra-arg=-std=c++11 -analyze $< --
 
