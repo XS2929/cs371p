@@ -6,7 +6,6 @@ FILES :=                \
     Coverage1           \
     Coverage2           \
     Coverage3           \
-    BoostSerialization
 
 #    Exceptions          \
 #    Variables           \
@@ -20,6 +19,7 @@ FILES :=                \
 #    Move                \
 #    MethodOverriding1   \
 #    MethodOverriding2
+#    BoostSerialization
 
 ifeq ($(shell uname), Darwin)                                           # Apple
     CXX          := g++
@@ -79,7 +79,6 @@ BoostSerialization: BoostSerialization.c++
 	$(CXX) $(GCOVFLAGS) $(CXXFLAGS) $< -o $@ $(LDFLAGS) -lboost_serialization
 	-$(CLANG-CHECK) -extra-arg=-std=c++11          $< --
 	-$(CLANG-CHECK) -extra-arg=-std=c++11 -analyze $< --
-	man ldd
 	ldd $@
 
 %: %.c++
@@ -128,7 +127,7 @@ versions:
 	@echo
 	ls -adl $(INCLUDE)/gtest
 	@echo
-	-ls -al $(LIBB)/libboost_serialization.a
+	ls -al $(LIBB)/libboost_serialization.a
 	@echo
 	ls -al $(LIBG)/libgtest.a
 	ls -al $(LIBG)/libgtest_main.a

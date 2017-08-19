@@ -113,7 +113,6 @@ sync:
     --include "Coverage1.c++"                \
     --include "Coverage2.c++"                \
     --include "Coverage3.c++"                \
-    --include "BoostSerialization.c++"       \
     --exclude "*"                            \
     ../../examples/c++/ examples
 
@@ -174,6 +173,7 @@ sync:
 #    --include "SharedPtr.h"                  \
 #    --include "Handle3.c++"                  \
 #    --include "Handle3.h"                    \
+#    --include "BoostSerialization.c++"       \
 #    --exclude "*"                            \
 #    ../../exercises/c++/ exercises
 #	@rsync -r -t -u -v --delete              \
