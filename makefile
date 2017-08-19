@@ -248,17 +248,17 @@ versions:
 	which $(CXX)
 	$(CXX) --version
 	@echo
-	ls -adl $(INCLUDE)/boost/*
+	ls -adl $(INCLUDE)/boost
 	@echo
-	ls -adl $(INCLUDE)/gtest/*
+	ls -adl $(INCLUDE)/gtest
 	@echo
-	-ls -al $(LIBB)/libboost_serialization.a
+	ls -al $(LIBB)/libboost_serialization.a
 	@echo
 	ls -al $(LIBG)/libgtest.a
 	ls -al $(LIBG)/libgtest_main.a
 	@echo
 	which $(CLANG-CHECK)
-	-$(CLANG-CHECK) --version
+	$(CLANG-CHECK) --version
 	@echo
 	which $(GCOV)
 	$(GCOV) --version
@@ -270,4 +270,4 @@ versions:
 	$(DOXYGEN) --version
 	@echo
 	which $(CLANG-FORMAT)
-	-$(CLANG-FORMAT) --version
+	$(CLANG-FORMAT) --version

@@ -133,7 +133,7 @@ versions:
 	ls -al $(LIBG)/libgtest_main.a
 	@echo
 	which $(CLANG-CHECK)
-	-$(CLANG-CHECK) --version
+	$(CLANG-CHECK) --version
 	@echo
 	which $(GCOV)
 	$(GCOV) --version
@@ -145,4 +145,4 @@ versions:
 	$(DOXYGEN) --version
 	@echo
 	which $(CLANG-FORMAT)
-	-$(CLANG-FORMAT) --version
+	$(CLANG-FORMAT) --version
