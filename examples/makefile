@@ -118,7 +118,7 @@ versions:
 	@echo
 	ls -adl $(INCLUDE)/gtest
 	@echo
-	ls -al $(LIBB)/libboost_serialization.a
+	-ls -al $(LIBB)/libboost_serialization.a
 	@echo
 	ls -al $(LIBG)/libgtest.a
 	ls -al $(LIBG)/libgtest_main.a
