@@ -2,7 +2,10 @@
 
 FILES :=                \
     Hello               \
-    UnitTests3
+    UnitTests3          \
+    Coverage1           \
+    Coverage2           \
+    Coverage3
 
 #    Exceptions          \
 #    Variables           \
