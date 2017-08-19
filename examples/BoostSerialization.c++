@@ -2,7 +2,7 @@
 // BoostSerialization.c++
 // ----------------------
 
-// http://www.boost.org/doc/libs/1_61_0/libs/serialization/doc/index.html
+// http://www.boost.org/doc/libs/1_64_0/libs/serialization/doc/index.html
 
 #include <cassert>  // assert
 #include <fstream>  // ifstream, ofstream
