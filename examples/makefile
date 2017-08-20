@@ -1,10 +1,10 @@
 .DEFAULT_GOAL := all
 
-FILES :=                \
-    Hello               \
-    UnitTests3          \
-    Coverage1           \
-    Coverage2           \
+FILES :=                    \
+    Hello                   \
+    UnitTests3              \
+    Coverage1               \
+    Coverage2               \
     Coverage3
 
 ifeq ($(shell uname), Darwin)                                           # Apple
