@@ -85,7 +85,6 @@ push:
 	@echo
 	git add .gitignore
 	git add .travis.yml
-	git add Dockerfile
 	git add examples
 	git add makefile
 	git add notes
@@ -106,6 +105,7 @@ status:
 sync:
 	@rsync -r -t -u -v --delete              \
     --include "Docker.txt"                   \
+    --include "Dockerfile"                   \
     --include "Hello.c++"                    \
     --include "Assertions.c++"               \
     --include "UnitTests1.c++"               \
