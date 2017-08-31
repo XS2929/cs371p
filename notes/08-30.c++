@@ -142,5 +142,5 @@ Questions:
     When?
     What version of g++ do the CS machines have?
     What is the Java equivalent to #include?
-    What is the Java equivalent to using namespace?
+    What is the Java equivalent to using?
 */
