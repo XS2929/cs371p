@@ -56,9 +56,13 @@ endif
 
 all:
 	cd examples; make all
+	@echo
+	cd projects/collatz; make all
 
 clean:
 	cd examples; make clean
+	@echo
+	cd projects/collatz; make clean
 
 config:
 	git config -l
@@ -95,6 +99,8 @@ push:
 
 run:
 	cd examples; make run
+	@echo
+	cd projects/collatz; make run
 
 status:
 	make clean
@@ -130,6 +136,8 @@ sync:
 
 travis:
 	cd examples; make travis
+	@echo
+	cd projects/collatz; make travis
 
 versions:
 	which cmake
