@@ -1,7 +1,8 @@
-.DEFAULT_GOAL := test
+.DEFAULT_GOAL := all
 
 FILES :=            \
     .gitignore      \
+    collatz-tests   \
     Collatz.c++     \
     Collatz.h       \
     Collatz.log     \
@@ -72,23 +73,21 @@ else                                                                    # UTCS
     CLANG-FORMAT := clang-format-3.8
 endif
 
-.PHONY: collatz-tests
 collatz-tests:
-	git clone https://github.com/cs371pt-spring-2017/collatz-tests.git
+	git clone https://github.com/cs371pt-fall-2017/collatz-tests.git
 
-html: Doxyfile
-	doxygen Doxyfile
+html: Doxyfile Collatz.h
+	$(DOXYGEN) Doxyfile
 
 Collatz.log:
 	git log > Collatz.log
 
 Doxyfile:
-	doxygen -g
-
-# Make the following edits to Doxyfile.
-# EXTRACT_ALL            = YES
-# EXTRACT_PRIVATE        = YES
-# EXTRACT_STATIC         = YES
+	$(DOXYGEN) -g
+	# you must manually edit Doxyfile and
+	# set EXTRACT_ALL     to YES
+	# set EXTRACT_PRIVATE to YES
+	# set EXTRACT_STATEIC to YES
 
 RunCollatz: Collatz.h Collatz.c++ RunCollatz.c++
 	$(CXX) $(CXXFLAGS) Collatz.c++ RunCollatz.c++ -o RunCollatz
@@ -97,58 +96,39 @@ RunCollatz: Collatz.h Collatz.c++ RunCollatz.c++
 	-$(CLANG-CHECK) -extra-arg=-std=c++11          RunCollatz.c++  --
 	-$(CLANG-CHECK) -extra-arg=-std=c++11 -analyze RunCollatz.c++  --
 
-.PHONY: RunCollatz.tmp
-RunCollatz.tmp: RunCollatz
+RunCollatz.c++x: RunCollatz
 	./RunCollatz < RunCollatz.in > RunCollatz.tmp
-	diff RunCollatz.tmp RunCollatz.out
+	-diff RunCollatz.tmp RunCollatz.out
 
 TestCollatz: Collatz.h Collatz.c++ TestCollatz.c++
-	$(CXX) $(CXXFLAGS) $(GCOVFLAGS) Collatz.c++ TestCollatz.c++ -o TestCollatz $(LDFLAGS)
+	$(CXX) $(GCOVFLAGS) $(CXXFLAGS) Collatz.c++ TestCollatz.c++ -o TestCollatz $(LDFLAGS)
 	-$(CLANG-CHECK) -extra-arg=-std=c++11          TestCollatz.c++ --
 	-$(CLANG-CHECK) -extra-arg=-std=c++11 -analyze TestCollatz.c++ --
 
-.PHONY: TestCollatz.tmp
-TestCollatz.tmp: TestCollatz
-	$(VALGRIND) ./TestCollatz                                        >  TestCollatz.tmp 2>&1
-	-$(GCOV) -b Collatz.c++     | grep -A 5 "File 'Collatz.c++'"     >> TestCollatz.tmp
-	-$(GCOV) -b TestCollatz.c++ | grep -A 5 "File 'TestCollatz.c++'" >> TestCollatz.tmp
-	cat TestCollatz.tmp
+TestCollatz.c++x: TestCollatz
+	$(VALGRIND) ./TestCollatz
+	-$(GCOV) -b Collatz.c++ | grep -A 5 "File '.*Collatz.c++'"
 
-check:
-	@not_found=0;                                 \
-    for i in $(FILES);                            \
-    do                                            \
-        if [ -e $$i ];                            \
-        then                                      \
-            echo "$$i found";                     \
-        else                                      \
-            echo "$$i NOT FOUND";                 \
-            not_found=`expr "$$not_found" + "1"`; \
-        fi                                        \
-    done;                                         \
-    if [ $$not_found -ne 0 ];                     \
-    then                                          \
-        echo "$$not_found failures";              \
-        exit 1;                                   \
-    fi;                                           \
-    echo "success";
+all: RunCollatz TestCollatz
+
+check: $(FILES)
 
 clean:
-	rm -f  *.bin
-	rm -f  *.db
 	rm -f  *.gcda
 	rm -f  *.gcno
 	rm -f  *.gcov
 	rm -f  *.plist
+	rm -f  *.tmp
 	rm -f  RunCollatz
-	rm -f  RunCollatz.tmp
 	rm -f  TestCollatz
-	rm -f  TestCollatz.tmp
 	rm -rf *.dSYM
 	rm -rf latex
 
 config:
 	git config -l
+
+docker:
+	docker run -it -v $(PWD):/usr/collatz -w /usr/collatz gpdowning/gcc
 
 format:
 	$(CLANG-FORMAT) -i Collatz.c++
@@ -156,10 +136,13 @@ format:
 	$(CLANG-FORMAT) -i RunCollatz.c++
 	$(CLANG-FORMAT) -i TestCollatz.c++
 
+run: RunCollatz.c++x TestCollatz.c++x
+
 scrub:
 	make clean
 	rm -f  Collatz.log
 	rm -f  Doxyfile
+	rm -rf collatz-tests
 	rm -rf html
 
 status:
@@ -169,9 +152,12 @@ status:
 	git remote -v
 	git status
 
-test: html Collatz.log RunCollatz.tmp TestCollatz.tmp collatz-tests
+travis: collatz-tests html Collatz.log
+	make clean
 	ls -al
-	make check
+	make run
+	ls -al
+	make -r check
 
 versions:
 	which cmake
@@ -196,7 +182,7 @@ versions:
 	ls -al $(LIBG)/libgtest_main.a
 	@echo
 	which $(CLANG-CHECK)
-	-$(CLANG-CHECK) --version
+	$(CLANG-CHECK) --version
 	@echo
 	which $(GCOV)
 	$(GCOV) --version
@@ -208,4 +194,4 @@ versions:
 	$(DOXYGEN) --version
 	@echo
 	which $(CLANG-FORMAT)
-	-$(CLANG-FORMAT) --version
+	$(CLANG-FORMAT) --version
