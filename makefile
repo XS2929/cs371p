@@ -88,6 +88,7 @@ push:
 	git add examples
 	git add makefile
 	git add notes
+	git add projects/collatz
 	git commit -m "another commit"
 	git push
 	git status
@@ -116,6 +117,16 @@ sync:
     --include "Coverage3.c++"                \
     --exclude "*"                            \
     ../../examples/c++/ examples
+	@rsync -r -t -u -v --delete              \
+    --include "Collatz.c++"                  \
+    --include "Collatz.h"                    \
+    --include "RunCollatz.c++"               \
+    --include "RunCollatz.in"                \
+    --include "RunCollatz.out"               \
+    --include "TestCollatz.c++"              \
+    --include "TestCollatz.out"              \
+    --exclude "*"                            \
+    ../../projects/c++/collatz/ projects/collatz
 
 travis:
 	cd examples; make travis
