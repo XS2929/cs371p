@@ -1,8 +1,8 @@
-// ------------------------------
-// projects/c++/collatz/Collatz.h
+// --------------------------
+// projects/collatz/Collatz.h
 // Copyright (C) 2017
 // Glenn P. Downing
-// ------------------------------
+// --------------------------
 
 #ifndef Collatz_h
 #define Collatz_h
@@ -22,32 +22,35 @@ using namespace std;
 // ------------
 
 /**
- * read an int from r
- * @param r an istream
- * @return the int
+ * read two ints
+ * @param s a string
+ * @return a pair of ints, representing the beginning and end of a range, [i, j]
  */
-int collatz_read (istream& r);
+pair<int, int> collatz_read (const string& s);
 
 // ------------
 // collatz_eval
 // ------------
 
 /**
- * @param n the end of the range [1, n], inclusive
- * @return the value that produces the max cycle length of the range [1, n]
+ * @param i the beginning of the range, inclusive
+ * @param j the end       of the range, inclusive
+ * @return the max cycle length of the range [i, j]
  */
-int collatz_eval (long long n);
+int collatz_eval (int i, int j);
 
 // -------------
 // collatz_print
 // -------------
 
 /**
- * print an int to w
+ * print three ints
  * @param w an ostream
- * @param m the max cycle length
+ * @param i the beginning of the range, inclusive
+ * @param j the end       of the range, inclusive
+ * @param v the max cycle length
  */
-void collatz_print (ostream& w, int m);
+void collatz_print (ostream& w, int i, int j, int v);
 
 // -------------
 // collatz_solve
