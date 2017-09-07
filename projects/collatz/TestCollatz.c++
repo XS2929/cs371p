@@ -1,8 +1,8 @@
-// --------------------------------
-// projects/collatz/TestCollatz.c++
+// ------------------------------------
+// projects/c++/collatz/TestCollatz.c++
 // Copyright (C) 2017
 // Glenn P. Downing
-// --------------------------------
+// ------------------------------------
 
 // https://code.google.com/p/googletest/wiki/V1_7_Primer#Basic_Assertions
 

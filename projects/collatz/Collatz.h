@@ -1,8 +1,8 @@
-// --------------------------
-// projects/collatz/Collatz.h
+// ------------------------------
+// projects/c++/collatz/Collatz.h
 // Copyright (C) 2017
 // Glenn P. Downing
-// --------------------------
+// ------------------------------
 
 #ifndef Collatz_h
 #define Collatz_h
