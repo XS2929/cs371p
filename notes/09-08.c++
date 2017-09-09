@@ -49,4 +49,11 @@ mcl(3001, 4000)
 ...
 
 what's mcl(500, 2500)
+
+Questions:
+    What two optimizations did we cover in the quiz?
+    What optimization did we cover in lecture?
+    What is a lazy cache, eager cache, and meta cache?
+    What do each of the caches cache?
+    How big should each cache be?
 */
