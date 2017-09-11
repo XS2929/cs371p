@@ -121,6 +121,8 @@ sync:
     --include "Coverage1.c++"                \
     --include "Coverage2.c++"                \
     --include "Coverage3.c++"                \
+    --include "IsPrime1.c++"                 \
+    --include "Exceptions.c++"               \
     --exclude "*"                            \
     ../../examples/c++/ examples
 	@rsync -r -t -u -v --delete              \
