@@ -39,6 +39,11 @@ CMD bash
 
 
 
+% docker login
+...
+
+
+
 % docker push gpdowning/gcc
 ...
 

@@ -8,6 +8,7 @@ RUN apt-get update                      && \
     apt-get -y install doxygen          && \
     apt-get -y install libgtest-dev     && \
     apt-get -y install valgrind         && \
+    apt-get -y install vim              && \
     cd /usr/src/gtest                   && \
     cmake CMakeLists.txt                && \
     make                                && \
