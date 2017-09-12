@@ -140,4 +140,13 @@ C++
 a throw in a catch clause always goes to the next higher try block
 
 catch clauses of types in a class hierarchy must list children first
+
+Questions:
+    What were the two bugs in IsPrime1?
+    What was the inefficiency in IsPrime1?
+    In using a parameter for error handling, why was the parameter passed by reference?
+    Could it have been passed by value?
+    Could it have been passed by address?
+    Why does throw always copy?
+    Why should you catch by reference?
 """
