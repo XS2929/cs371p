@@ -125,6 +125,7 @@ sync:
     --include "IsPrime2.c++"                 \
     --include "Exceptions.c++"               \
     --include "Types.c++"                    \
+    --include "Operators.c++"                \
     --exclude "*"                            \
     ../../examples/c++/ examples
 	@rsync -r -t -u -v --delete              \

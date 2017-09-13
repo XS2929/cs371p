@@ -9,7 +9,8 @@ FILES :=                    \
     IsPrime1                \
     IsPrime2                \
     Exceptions              \
-    Types
+    Types                   \
+    Operators
 
 ifeq ($(shell uname), Darwin)                                           # Apple
     CXX          := g++
