@@ -16,6 +16,9 @@ addons:
       - libgtest-dev
       - valgrind
 
+before_install:
+    - cat .travis.yml
+
 install:
     - pwd
     - ls -al
@@ -30,10 +33,11 @@ install:
     - cd -
 
 before_script:
+    - date
     - uname -a
     - printenv | sort
-    - make versions
 
 script:
-    - date
+    - cat makefile
+    - make versions
     - make travis

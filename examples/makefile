@@ -37,7 +37,7 @@ else ifeq ($(shell uname -p), unknown)                                  # Docker
     CXX          := g++
     INCLUDE      := /usr/include
     CXXFLAGS     := -pedantic -std=c++14 -Wall -Weffc++
-    LIBB         := /usr/lib
+    LIBB         := /usr/lib/x86_64-linux-gnu/
     LIBG         := /usr/lib
     LDFLAGS      := -lgtest -lgtest_main -pthread
     CLANG-CHECK  := clang-check
