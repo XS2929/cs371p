@@ -10,7 +10,7 @@ user errors
     exceptions
 
 exceptions
-type
+types
 l-values / r-values
 
 in C

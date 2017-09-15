@@ -11,8 +11,7 @@ FILES :=            \
     RunCollatz.c++  \
     RunCollatz.in   \
     RunCollatz.out  \
-    TestCollatz.c++ \
-    TestCollatz.out
+    TestCollatz.c++
 
 # uncomment these:
 #    .travis.yml                           \
