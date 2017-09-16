@@ -126,6 +126,7 @@ sync:
     --include "Exceptions.c++"               \
     --include "Types.c++"                    \
     --include "Operators.c++"                \
+    --include "Variables.c++"                \
     --exclude "*"                            \
     ../../examples/c++/ examples
 	@rsync -r -t -u -v --delete              \

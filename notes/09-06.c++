@@ -22,8 +22,10 @@ tests
         unit tests
 
 read eval print loop (REPL)
+*/
 
-Questions:
+/*
+Questions
     What's the difference between the private classroom repo and the private code repo?
     Which repo's GitHub Issue Tracker should you use?
     Which repo should Travis CI be connected to?

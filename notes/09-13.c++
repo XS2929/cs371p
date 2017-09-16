@@ -60,7 +60,7 @@ int main () {
     f(y);
 
 /*
-Questions:
+Questions
     How do you compare the identity of two C   strings?
     How do you compare the value    of two C   strings?
     How do you compare the identity of two C++ strings?

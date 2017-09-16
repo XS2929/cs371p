@@ -133,8 +133,10 @@ Regional Contest
     Baylor
     1, 2, 3, 4
     South Dakota
+*/
 
-Questions:
+/*
+Questions
     What's the class disclaimer?
     What's the line comment in C++? In Java?
     What's the block comment in C++? In Java?
