@@ -36,8 +36,8 @@ before_script:
     - date
     - uname -a
     - printenv | sort
-
-script:
     - cat makefile
     - make versions
+
+script:
     - make travis

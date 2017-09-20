@@ -4,9 +4,11 @@
 
 // https://en.wikipedia.org/wiki/Primality_test
 
-#include <cmath> // sqrt
+#include <cassert>  // assert
+#include <cmath>    // sqrt
+#include <iostream> // cout, endl
 
-#include "gtest/gtest.h"
+using namespace std;
 
 bool is_prime (int n) {
     assert(n > 0);
@@ -17,29 +19,16 @@ bool is_prime (int n) {
             return false;
     return true;}
 
-TEST(IsPrimeFixture, test_1) {
-    ASSERT_FALSE(is_prime( 1));}
-
-TEST(IsPrimeFixture, test_2) {
-    ASSERT_FALSE(is_prime( 2));}
-
-TEST(IsPrimeFixture, test_3) {
-    ASSERT_TRUE(is_prime( 3));}
-
-TEST(IsPrimeFixture, test_4) {
-    ASSERT_FALSE(is_prime( 4));}
-
-TEST(IsPrimeFixture, test_5) {
-    ASSERT_TRUE(is_prime( 5));}
-
-TEST(IsPrimeFixture, test_7) {
-    ASSERT_TRUE(is_prime( 7));}
-
-TEST(IsPrimeFixture, test_9) {
-    ASSERT_TRUE(is_prime( 9));}
-
-TEST(IsPrimeFixture, test_27) {
-    ASSERT_FALSE(is_prime(27));}
-
-TEST(IsPrimeFixture, test_29) {
-    ASSERT_TRUE(is_prime(29));}
+int main () {
+    cout << "IsPrime.c++" << endl;
+    assert(!is_prime( 1));
+    assert(!is_prime( 2));
+    assert( is_prime( 3));
+    assert(!is_prime( 4));
+    assert( is_prime( 5));
+    assert( is_prime( 7));
+    assert( is_prime( 9));
+    assert(!is_prime(27));
+    assert( is_prime(29));
+    cout << "Done." << endl;
+    return 0;}
