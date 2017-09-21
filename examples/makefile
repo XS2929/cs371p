@@ -84,6 +84,7 @@ all: $(FILES)
 
 clean:
 	rm -f *.bin
+	rm -f *.gcov
 	rm -f *.plist
 	rm -f $(FILES)
 
