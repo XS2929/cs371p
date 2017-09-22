@@ -10,6 +10,8 @@ FILES :=                    \
     IsPrime2                \
     Exceptions              \
     Types                   \
+    Incr1                   \
+    Incr2                   \
     Operators
 
 ifeq ($(shell uname), Darwin)                                           # Apple

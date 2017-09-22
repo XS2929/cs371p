@@ -126,6 +126,8 @@ sync:
     --include "Exceptions.c++"               \
     --include "Types.c++"                    \
     --include "Operators.c++"                \
+    --include "Incr1.c++"                    \
+    --include "Incr2.c++"                    \
     --include "Variables.c++"                \
     --exclude "*"                            \
     ../../examples/c++/ examples
