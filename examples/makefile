@@ -12,7 +12,8 @@ FILES :=                    \
     Types                   \
     Incr1                   \
     Incr2                   \
-    Operators
+    Operators               \
+    Arguments
 
 ifeq ($(shell uname), Darwin)                                           # Apple
     CXX          := g++
