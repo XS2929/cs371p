@@ -10,4 +10,6 @@ arrays
 &
 
 variables
+arguments
+Equal
 */
