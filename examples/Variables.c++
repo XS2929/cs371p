@@ -8,10 +8,9 @@
 #include <cassert>   // assert
 #include <iostream>  // cout, endl
 
-int main () {
-    using namespace std;
-    cout << "Variables.c++" << endl;
+using namespace std;
 
+void test () {
     {
     int i = 2;
     int v = i;
@@ -86,7 +85,10 @@ int main () {
     ++b[1];
     assert(a[1] == 3);
     assert(b[1] == 4);
-    }
+    }}
 
+int main () {
+    cout << "Variables.c++" << endl;
+    test();
     cout << "Done." << endl;
     return 0;}

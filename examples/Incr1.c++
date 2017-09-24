@@ -17,9 +17,7 @@ int post_incr (int& r) {
     r += 1;
     return v;}
 
-int main () {
-    cout << "Incr1.c++" << endl;
-
+void test () {
     {
     int i = 2;
     int j = pre_incr(i);
@@ -45,7 +43,10 @@ int main () {
     int i = 2;
 //  post_incr(post_incr(i)); // error: no matching function for call to 'post_incr'
     assert(i == 2);
-    }
+    }}
 
+int main () {
+    cout << "Incr1.c++" << endl;
+    test();
     cout << "Done." << endl;
     return 0;}

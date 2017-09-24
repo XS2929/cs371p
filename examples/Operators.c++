@@ -7,10 +7,9 @@
 #include <cassert>  // assert
 #include <iostream> // cout, endl
 
-int main () {
-    using namespace std;
-    cout << "Operators.c++" << endl;
+using namespace std;
 
+void test () {
     {
     int i = 2;
     int j = -i;      // negation
@@ -273,7 +272,10 @@ int main () {
     const int a[] = {2, 3, 4};
     assert(a[1] == 3);
 //  ++a[1];                    // error: increment of read-only location
-    }
+    }}
 
+int main () {
+    cout << "Operators.c++" << endl;
+    test();
     cout << "Done." << endl;
     return 0;}

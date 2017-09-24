@@ -7,6 +7,10 @@ finished types
 l-values / r-values
 pre  increment
 post increment
+
+arrays
+*
+&
 */
 
 int i = 2;
