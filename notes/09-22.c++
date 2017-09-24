@@ -47,17 +47,21 @@ int v = i;
 cout << i; // 2
 cout << v; // 3
 
+int  i = 2;
 int* p = i;  // not ok
 int* p = &i; // & must take an l-value
-++p;         // compile time, but run time undefined
-++*p;
-++*i; // not ok
-++*2; // not ok
+++p;         // compile time ok, but run time undefined
+++*i;        // not ok
+++*2;        // not ok
+++*p;        // * must take a pointer
+cout << i;   // 3
 
+int i = 2;
 int& r = &i; // not ok
 int& r = i;
-++r;
 ++*r;        // not ok
+++r;         // references do not need to be dereferenced
+cout << i;   // 3
 
 /*
 Questions
@@ -67,4 +71,5 @@ Questions
     Does Java's array index operator return an l-value or r-value
     Does C++'s array index operator return an l-value or r-value
     What's the l-value / r-value behavior of *, &?
+    What's the difference between a pointer and a reference?
 */
