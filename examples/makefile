@@ -13,7 +13,8 @@ FILES :=                    \
     Incr1                   \
     Incr2                   \
     Operators               \
-    Arguments
+    Arguments               \
+    Consts
 
 ifeq ($(shell uname), Darwin)                                           # Apple
     CXX          := g++

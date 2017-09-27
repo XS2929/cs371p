@@ -130,6 +130,7 @@ sync:
     --include "Incr2.c++"                    \
     --include "Variables.c++"                \
     --include "Arguments.c++"                \
+    --include "Consts.c++"                   \
     --exclude "*"                            \
     ../../examples/c++/ examples
 	@rsync -r -t -u -v --delete              \
