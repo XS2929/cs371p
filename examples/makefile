@@ -14,6 +14,8 @@ FILES :=                    \
     Incr2                   \
     Operators               \
     Arguments               \
+    Equal1                  \
+    Equal2                  \
     Consts
 
 ifeq ($(shell uname), Darwin)                                           # Apple
