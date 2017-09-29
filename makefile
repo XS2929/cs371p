@@ -132,6 +132,7 @@ sync:
     --include "Arguments.c++"                \
     --include "Equal1.c++"                   \
     --include "Equal2.c++"                   \
+    --include "Iterators.c++"                \
     --include "Consts.c++"                   \
     --exclude "*"                            \
     ../../examples/c++/ examples

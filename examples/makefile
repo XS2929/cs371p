@@ -16,6 +16,7 @@ FILES :=                    \
     Arguments               \
     Equal1                  \
     Equal2                  \
+    Iterators               \
     Consts
 
 ifeq ($(shell uname), Darwin)                                           # Apple
