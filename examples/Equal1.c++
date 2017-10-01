@@ -20,8 +20,8 @@ bool my_equal (II1 b, II1 e, II2 c) {
     return true;}
 
 void test () {
-    int a[] = {2, 3, 4};
-    int b[] = {0, 2, 3, 4, 0};
+    const int a[] = {2, 3, 4};
+    const int b[] = {0, 2, 3, 4, 0};
 
     assert(!   equal(a, a + 3, b));
     assert(!my_equal(a, a + 3, b));
