@@ -17,20 +17,20 @@ int post_incr (int& r) {
 TEST(IncrFixture, test_1) {
     int i = 2;
     int j = pre_incr(i);
-    ASSERT_EQ(3, i);
-    ASSERT_EQ(3, j);}
+    ASSERT_EQ(i, 3);
+    ASSERT_EQ(j, 3);}
 
 TEST(IncrFixture, test_2) {
     int i = 2;
     int j = pre_incr(pre_incr(i));
-    ASSERT_EQ(4, i);
-    ASSERT_EQ(4, j);}
+    ASSERT_EQ(i, 4);
+    ASSERT_EQ(j, 4);}
 
 TEST(IncrFixture, test_3) {
     int i = 2;
     int j = post_incr(i);
-    ASSERT_EQ(3, i);
-    ASSERT_EQ(2, j);}
+    ASSERT_EQ(i, 3);
+    ASSERT_EQ(j, 2);}
 
 TEST(IncrFixture, test_4) {
     int i = 2;
