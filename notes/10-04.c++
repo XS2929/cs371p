@@ -3,7 +3,9 @@
 // -----------
 
 /*
+fill()
 iota()
 accumulate()
+copy()
 transform()
 */
