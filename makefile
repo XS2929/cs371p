@@ -134,6 +134,8 @@ sync:
     --include "Equal2.c++"                   \
     --include "Iterators.c++"                \
     --include "Consts.c++"                   \
+    --include "Factorial1.c++"               \
+    --include "Factorial2.c++"               \
     --exclude "*"                            \
     ../../examples/c++/ examples
 	@rsync -r -t -u -v --delete              \
