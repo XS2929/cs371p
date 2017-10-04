@@ -47,7 +47,7 @@ int factorial_accumulate (int n) {
     assert(n >= 0);
     vector<int> x(n);
     iota(x.begin(), x.end(), 1);
-    const int v = accumulate(x.begin(), x.end(), 1, [] (int x, int y) {return x * y;});
+    const int v = accumulate(x.begin(), x.end(), 1, [] (int x, int y) -> int {return x * y;});
     return v;}
 
 void test (function<int (int)> f) {

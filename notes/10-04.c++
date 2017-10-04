@@ -9,3 +9,14 @@ accumulate()
 copy()
 transform()
 */
+
+/*
+refinement overriding
+
+Java
+    constructors
+
+C++
+    constructors
+    destructors
+*/

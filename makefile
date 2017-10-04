@@ -136,6 +136,16 @@ sync:
     --include "Consts.c++"                   \
     --include "Factorial1.c++"               \
     --include "Factorial2.c++"               \
+    --include "Fill1.c++"                    \
+    --include "Fill2.c++"                    \
+    --include "Iota1.c++"                    \
+    --include "Iota2.c++"                    \
+    --include "Accumulate1.c++"              \
+    --include "Accumulate2.c++"              \
+    --include "Copy1.c++"                    \
+    --include "Copy2.c++"                    \
+    --include "Transform1.c++"               \
+    --include "Transform2.c++"               \
     --exclude "*"                            \
     ../../examples/c++/ examples
 	@rsync -r -t -u -v --delete              \
