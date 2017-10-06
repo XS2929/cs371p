@@ -77,8 +77,7 @@ void test () {
     {
     RangeIterator<int> b = 2;
     RangeIterator<int> e = 5;
-    const int a[] = {2, 3, 4};
-    assert(my_equal(b, e, a));
+    assert(my_equal(b, e, begin({2, 3, 4})));
     }}
 
 int main () {

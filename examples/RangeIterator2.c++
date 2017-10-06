@@ -64,4 +64,6 @@ TEST(RangeIteratorFixture, test_3) {
     ASSERT_EQ(b, e);}
 
 TEST(RangeIteratorFixture, test_4) {
-    ASSERT_TRUE(equal(RangeIterator<int>(2), RangeIterator<int>(5), begin({2, 3, 4})));}
+    RangeIterator<int> b = 2;
+    RangeIterator<int> e = 5;
+    ASSERT_TRUE(equal(b, e, begin({2, 3, 4})));}
