@@ -17,14 +17,14 @@ class RangeIterator {
                 _v (v)
             {}
 
-        T operator * () const {
-            return _v;}
-
         bool operator == (const RangeIterator& rhs) const {
             return (_v == rhs._v);}
 
         bool operator != (const RangeIterator& rhs) const {
             return !(*this == rhs);}
+
+        T operator * () const {
+            return _v;}
 
         RangeIterator& operator ++ () {
             ++_v;
