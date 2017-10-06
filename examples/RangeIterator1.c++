@@ -9,12 +9,6 @@ using namespace std;
 
 template <typename T>
 class RangeIterator {
-    friend bool operator == (const RangeIterator& lhs, const RangeIterator& rhs) {
-        return (lhs._v == rhs._v);}
-
-    friend bool operator != (const RangeIterator& lhs, const RangeIterator& rhs) {
-        return !(lhs == rhs);}
-
     private:
         T _v;
 
@@ -25,6 +19,12 @@ class RangeIterator {
 
         T operator * () const {
             return _v;}
+
+        bool operator == (const RangeIterator& rhs) const {
+            return (_v == rhs._v);}
+
+        bool operator != (const RangeIterator& rhs) const {
+            return !(*this == rhs);}
 
         RangeIterator& operator ++ () {
             ++_v;
