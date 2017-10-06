@@ -20,3 +20,10 @@ C++
     constructors
     destructors
 */
+
+/*
+Questions
+    How are fill() and iota() similar?
+    What does accumulate, do?
+    How are copy() and transform() similar?
+*/

@@ -146,6 +146,8 @@ sync:
     --include "Copy2.c++"                    \
     --include "Transform1.c++"               \
     --include "Transform2.c++"               \
+    --include "RangeIterator1.c++"           \
+    --include "RangeIterator2.c++"           \
     --exclude "*"                            \
     ../../examples/c++/ examples
 	@rsync -r -t -u -v --delete              \

@@ -30,6 +30,8 @@ FILES :=                    \
     Copy2                   \
     Transform1              \
     Transform2              \
+    RangeIterator1          \
+    RangeIterator2
 
 ifeq ($(shell uname), Darwin)                                           # Apple
     CXX          := g++
