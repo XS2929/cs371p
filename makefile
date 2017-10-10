@@ -148,6 +148,8 @@ sync:
     --include "Transform2.c++"               \
     --include "RangeIterator1.c++"           \
     --include "RangeIterator2.c++"           \
+    --include "Range1.c++"                   \
+    --include "Range2.c++"                   \
     --exclude "*"                            \
     ../../examples/c++/ examples
 	@rsync -r -t -u -v --delete              \
