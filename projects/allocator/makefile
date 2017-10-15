@@ -1,7 +1,8 @@
-.DEFAULT_GOAL := test
+.DEFAULT_GOAL := all
 
 FILES :=              \
     .gitignore        \
+    allocator-tests   \
     Allocator.h       \
     Allocator.log     \
     html              \
@@ -9,8 +10,7 @@ FILES :=              \
     RunAllocator.c++  \
     RunAllocator.in   \
     RunAllocator.out  \
-    TestAllocator.c++ \
-    TestAllocator.out
+    TestAllocator.c++
 
 # uncomment these:
 #    .travis.yml                               \
@@ -20,10 +20,10 @@ FILES :=              \
 ifeq ($(shell uname), Darwin)                                           # Apple
     CXX          := g++
     INCLUDE      := /usr/local/include
-    CXXFLAGS     := -pedantic -std=c++14 -I$(INCLUDE) -Wall -Weffc++
+    CXXFLAGS     := -pedantic -std=c++14 -Wall -Weffc++
     LIBB         := /usr/local/lib
     LIBG         := /usr/local/lib
-    LDFLAGS      := -lboost_serialization -lgtest_main
+    LDFLAGS      := -lgtest -lgtest_main
     CLANG-CHECK  := clang-check
     GCOV         := gcov
     GCOVFLAGS    := -fprofile-arcs -ftest-coverage
@@ -34,9 +34,9 @@ else ifeq ($(CI), true)                                                 # Travis
     CXX          := g++-5
     INCLUDE      := /usr/include
     CXXFLAGS     := -pedantic -std=c++14 -Wall -Weffc++
-    LIBB         := /usr/lib
+    LIBB         := /usr/lib/x86_64-linux-gnu/
     LIBG         := $(PWD)/gtest
-    LDFLAGS      := -lboost_serialization -lgtest -lgtest_main -pthread
+    LDFLAGS      := -lgtest -lgtest_main -pthread
     CLANG-CHECK  := clang-check
     GCOV         := gcov-5
     GCOVFLAGS    := -fprofile-arcs -ftest-coverage
@@ -47,9 +47,9 @@ else ifeq ($(shell uname -p), unknown)                                  # Docker
     CXX          := g++
     INCLUDE      := /usr/include
     CXXFLAGS     := -pedantic -std=c++14 -Wall -Weffc++
-    LIBB         := /usr/lib
+    LIBB         := /usr/lib/x86_64-linux-gnu/
     LIBG         := /usr/lib
-    LDFLAGS      := -lboost_serialization -lgtest -lgtest_main -pthread
+    LDFLAGS      := -lgtest -lgtest_main -pthread
     CLANG-CHECK  := clang-check
     GCOV         := gcov
     GCOVFLAGS    := -fprofile-arcs -ftest-coverage
@@ -62,7 +62,7 @@ else                                                                    # UTCS
     CXXFLAGS     := -pedantic -std=c++14 -Wall -Weffc++
     LIBB         := /usr/lib/x86_64-linux-gnu
     LIBG         := /usr/local/lib
-    LDFLAGS      := -lboost_serialization -lgtest -lgtest_main -pthread
+    LDFLAGS      := -lgtest -lgtest_main -pthread
     CLANG-CHECK  := clang-check
     GCOV         := gcov
     GCOVFLAGS    := -fprofile-arcs -ftest-coverage
@@ -71,91 +71,75 @@ else                                                                    # UTCS
     CLANG-FORMAT := clang-format-3.8
 endif
 
-.PHONY: allocator-tests
 allocator-tests:
-	git clone https://github.com/cs371pt-spring-2017/allocator-tests.git
+	git clone https://github.com/cs371pt-fall-2017/allocator-tests.git
 
-html: Doxyfile
-	doxygen Doxyfile
+html: Doxyfile Allocator.h
+	$(DOXYGEN) Doxyfile
 
 Allocator.log:
 	git log > Allocator.log
 
 Doxyfile:
-	doxygen -g
-
-# Make the following edits to Doxyfile.
-# EXTRACT_ALL            = YES
-# EXTRACT_PRIVATE        = YES
-# EXTRACT_STATIC         = YES
+	$(DOXYGEN) -g
+	# you must manually edit Doxyfile and
+	# set EXTRACT_ALL     to YES
+	# set EXTRACT_PRIVATE to YES
+	# set EXTRACT_STATEIC to YES
 
 RunAllocator: Allocator.h RunAllocator.c++
 	$(CXX) $(CXXFLAGS) RunAllocator.c++ -o RunAllocator
 	-$(CLANG-CHECK) -extra-arg=-std=c++11          RunAllocator.c++  --
 	-$(CLANG-CHECK) -extra-arg=-std=c++11 -analyze RunAllocator.c++  --
 
-.PHONY: RunAllocator.tmp
-RunAllocator.tmp: RunAllocator
+RunAllocator.c++x: RunAllocator
 	./RunAllocator < RunAllocator.in > RunAllocator.tmp
-	diff RunAllocator.tmp RunAllocator.out
+	-diff RunAllocator.tmp RunAllocator.out
 
 TestAllocator: Allocator.h TestAllocator.c++
-	$(CXX) $(CXXFLAGS) $(GCOVFLAGS) TestAllocator.c++ -o TestAllocator $(LDFLAGS)
+	$(CXX) $(GCOVFLAGS) $(CXXFLAGS) TestAllocator.c++ -o TestAllocator $(LDFLAGS)
 	-$(CLANG-CHECK) -extra-arg=-std=c++11          TestAllocator.c++ --
 	-$(CLANG-CHECK) -extra-arg=-std=c++11 -analyze TestAllocator.c++ --
 
-.PHONY: TestAllocator.tmp
-TestAllocator.tmp: TestAllocator
+TestAllocator.c++x: TestAllocator
 	$(VALGRIND) ./TestAllocator                                          >  TestAllocator.tmp 2>&1
-	-$(GCOV) -b TestAllocator.c++ | grep -A 5 "File 'Allocator.h'"       >> TestAllocator.tmp
+	-$(GCOV) -b TestAllocator.c++ | grep -A 5 "File 'Allocator.h'"       >> TestAllocator.tmp 2>&1
 	-$(GCOV) -b TestAllocator.c++ | grep -A 5 "File 'TestAllocator.c++'" >> TestAllocator.tmp
 	cat TestAllocator.tmp
 
-check:
-	@not_found=0;                                 \
-    for i in $(FILES);                            \
-    do                                            \
-        if [ -e $$i ];                            \
-        then                                      \
-            echo "$$i found";                     \
-        else                                      \
-            echo "$$i NOT FOUND";                 \
-            not_found=`expr "$$not_found" + "1"`; \
-        fi                                        \
-    done;                                         \
-    if [ $$not_found -ne 0 ];                     \
-    then                                          \
-        echo "$$not_found failures";              \
-        exit 1;                                   \
-    fi;                                           \
-    echo "success";
+all: RunAllocator TestAllocator
+
+check: $(FILES)
 
 clean:
-	rm -f  *.bin
-	rm -f  *.db
 	rm -f  *.gcda
 	rm -f  *.gcno
 	rm -f  *.gcov
 	rm -f  *.plist
+	rm -f  *.tmp
 	rm -f  RunAllocator
-	rm -f  RunAllocator.tmp
 	rm -f  TestAllocator
-	rm -f  TestAllocator.tmp
 	rm -rf *.dSYM
 	rm -rf latex
 
 config:
 	git config -l
 
+docker:
+	docker run -it -v $(PWD):/usr/allocator -w /usr/allocator gpdowning/gcc
+
 format:
 	$(CLANG-FORMAT) -i Allocator.h
 	$(CLANG-FORMAT) -i RunAllocator.c++
 	$(CLANG-FORMAT) -i TestAllocator.c++
 
+run: RunAllocator.c++x TestAllocator.c++x
+
 scrub:
 	make clean
 	rm -f  Allocator.log
 	rm -f  Doxyfile
+	rm -rf allocator-tests
 	rm -rf html
 
 status:
@@ -165,11 +149,17 @@ status:
 	git remote -v
 	git status
 
-test: html Allocator.log RunAllocator.tmp TestAllocator.tmp allocator-tests
+travis: allocator-tests html Allocator.log
+	make clean
 	ls -al
-	make check
+	make run
+	ls -al
+	make -r check
 
 versions:
+	which cmake
+	cmake --version
+	@echo
 	which make
 	make --version
 	@echo
@@ -179,16 +169,17 @@ versions:
 	which $(CXX)
 	$(CXX) --version
 	@echo
-	ls -ald $(INCLUDE)/boost
+	ls -adl $(INCLUDE)/boost
 	@echo
-	ls -ald $(INCLUDE)/gtest
+	ls -adl $(INCLUDE)/gtest
 	@echo
-	ls -al $(LIBB)/*boost*
+	ls -al $(LIBB)/libboost_serialization.a
 	@echo
-	ls -al $(LIBG)/*gtest*
+	ls -al $(LIBG)/libgtest.a
+	ls -al $(LIBG)/libgtest_main.a
 	@echo
 	which $(CLANG-CHECK)
-	-$(CLANG-CHECK) --version
+	$(CLANG-CHECK) --version
 	@echo
 	which $(GCOV)
 	$(GCOV) --version
@@ -200,4 +191,4 @@ versions:
 	$(DOXYGEN) --version
 	@echo
 	which $(CLANG-FORMAT)
-	-$(CLANG-FORMAT) --version
+	$(CLANG-FORMAT) --version

@@ -106,6 +106,8 @@ run:
 	cd examples; make run
 	@echo
 	cd projects/collatz; make run
+	@echo
+	cd projects/allocator; make run
 
 status:
 	make clean
