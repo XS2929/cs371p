@@ -11,6 +11,7 @@
 #include <cassert>  // assert
 #include <fstream>  // ifstream
 #include <iostream> // cout, endl, getline
+#include <string>   // s
 
 #include "Allocator.h"
 
@@ -24,8 +25,8 @@ int main () {
     // write RunAllocator.out
 
     // replace!
-    ifstream fin("RunAllocator.out");
-    char a[80];
-    while (fin.getline(a, 80))
-        cout << a << endl;
+    ifstream f("RunAllocator.out");
+    string   s;
+    while (getline(f, s))
+        cout << s << endl;
     return 0;}
