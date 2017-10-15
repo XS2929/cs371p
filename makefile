@@ -58,11 +58,15 @@ all:
 	cd examples; make all
 	@echo
 	cd projects/collatz; make all
+	@echo
+	cd projects/allocator; make all
 
 clean:
 	cd examples; make clean
 	@echo
 	cd projects/collatz; make clean
+	@echo
+	cd projects/allocator; make clean
 
 config:
 	git config -l
@@ -93,6 +97,7 @@ push:
 	git add makefile
 	git add notes
 	git add projects/collatz
+	git add projects/allocator
 	git commit -m "another commit"
 	git push
 	git status
