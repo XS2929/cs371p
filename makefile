@@ -183,6 +183,8 @@ travis:
 	cd examples; make travis
 	@echo
 	cd projects/collatz; make travis
+	@echo
+	cd projects/allocator; make travis
 
 versions:
 	which cmake
