@@ -162,6 +162,15 @@ sync:
     --include "TestCollatz.out"              \
     --exclude "*"                            \
     ../../projects/c++/collatz/ projects/collatz
+	@rsync -r -t -u -v --delete              \
+    --include "Allocator.h"                  \
+    --include "RunAllocator.c++"             \
+    --include "RunAllocator.in"              \
+    --include "RunAllocator.out"             \
+    --include "TestAllocator.c++"            \
+    --include "TestAllocator.out"            \
+    --exclude "*"                            \
+    ../../projects/c++/allocator/ projects/allocator
 
 travis:
 	cd examples; make travis
