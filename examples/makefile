@@ -33,7 +33,8 @@ FILES :=                    \
     RangeIterator1          \
     RangeIterator2          \
     Range1                  \
-    Range2
+    Range2                  \
+    Arrays
 
 ifeq ($(shell uname), Darwin)                                           # Apple
     CXX          := g++

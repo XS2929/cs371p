@@ -157,6 +157,7 @@ sync:
     --include "RangeIterator2.c++"           \
     --include "Range1.c++"                   \
     --include "Range2.c++"                   \
+    --include "Arrays.c++"                   \
     --exclude "*"                            \
     ../../examples/c++/ examples
 	@rsync -r -t -u -v --delete              \
