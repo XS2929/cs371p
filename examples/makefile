@@ -36,7 +36,9 @@ FILES :=                    \
     Range2                  \
     Arrays                  \
     Vector1                 \
-    Vector2
+    Vector2                 \
+    Vector3                 \
+    Vector4
 
 ifeq ($(shell uname), Darwin)                                           # Apple
     CXX          := g++

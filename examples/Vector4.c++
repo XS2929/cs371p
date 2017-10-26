@@ -1,12 +1,13 @@
 // -----------
-// Vector2.c++
+// Vector4.c++
 // -----------
 
 // http://en.cppreference.com/w/cpp/container/vector
 
-#include <algorithm>        // copy, equal, fill
+#include <algorithm>        // copy, equal, fill, swap
 #include <cstddef>          // ptrdiff_t, size_t
 #include <initializer_list> // initializer_list
+#include <utility>          // !=
 #include <vector>           // vector
 
 #include "gtest/gtest.h"
@@ -14,8 +15,25 @@
 using namespace std;
 using namespace testing;
 
+/*
+namespace std     {
+namespace rel_ops {
+
+template <typename T>
+inline bool operator != (const T& lhs, const T& rhs) {
+    return !(lhs == rhs);}
+
+} // rel_ops
+} // std;
+*/
+
+using namespace rel_ops;
+
 template <typename T>
 class my_vector {
+    friend bool operator == (const my_vector& lhs, const my_vector& rhs) {
+        return (lhs.size() == rhs.size()) && equal(lhs.begin(), lhs.end(), rhs.begin());}
+
     public:
         using value_type      = T;
 
@@ -53,8 +71,18 @@ class my_vector {
                 _e (_b + rhs.size()) {
             copy(rhs.begin(), rhs.end(), _b);}
 
-        my_vector             (const my_vector&)  = delete;
-        my_vector& operator = (const my_vector&)  = delete;
+        my_vector (const my_vector& rhs) :
+                _b ((rhs.size() == 0) ? nullptr : new value_type[rhs.size()]),
+                _e (_b + rhs.size()) {
+            copy(rhs._b, rhs._e, _b);}
+
+        my_vector& operator = (const my_vector& rhs) {
+            if (this == &rhs)
+                return *this;
+            my_vector that(rhs);
+            swap(_b, that._b);
+            swap(_e, that._e);
+            return *this;}
 
         ~my_vector () {
             delete [] _b;}
@@ -125,3 +153,20 @@ TYPED_TEST(VectorFixture, test_4) {
     const vector_type x = {2, 3, 4};
     ASSERT_EQ(3, x.size());
     ASSERT_TRUE(equal(begin(x), end(x), begin({2, 3, 4})));}
+
+TYPED_TEST(VectorFixture, test_5) {
+    using vector_type = typename TestFixture::vector_type;
+
+    const vector_type x(10, 2);
+    const vector_type y = x;
+    ASSERT_NE(begin(x), begin(y));
+    ASSERT_EQ(x, y);}
+
+TYPED_TEST(VectorFixture, test_6) {
+    using vector_type = typename TestFixture::vector_type;
+
+    const vector_type x(20, 3);
+          vector_type y(10, 2);
+    y = x;
+    ASSERT_NE(begin(x), begin(y));
+    ASSERT_EQ(x, y);}

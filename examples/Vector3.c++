@@ -1,5 +1,5 @@
 // -----------
-// Vector1.c++
+// Vector3.c++
 // -----------
 
 // http://en.cppreference.com/w/cpp/container/vector
@@ -39,10 +39,25 @@ void test () {
     const vector<int> x = {2, 3, 4};
     assert(x.size() == 3);
     assert(equal(begin(x), end(x), begin({2, 3, 4})));
+    }
+
+    {
+    const vector<int> x(10, 2);
+    const vector<int> y = x;
+    assert(begin(x) != begin(y));
+    assert(x == y);
+    }
+
+    {
+    const vector<int> x(20, 3);
+          vector<int> y(10, 2);
+    y = x;
+    assert(begin(x) != begin(y));
+    assert(x == y);
     }}
 
 int main () {
-    cout << "Vector1.c++" << endl;
+    cout << "Vector3.c++" << endl;
     test();
     cout << "Done." << endl;
     return 0;}

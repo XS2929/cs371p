@@ -160,6 +160,8 @@ sync:
     --include "Arrays.c++"                   \
     --include "Vector1.c++"                  \
     --include "Vector2.c++"                  \
+    --include "Vector3.c++"                  \
+    --include "Vector4.c++"                  \
     --exclude "*"                            \
     ../../examples/c++/ examples
 	@rsync -r -t -u -v --delete              \
