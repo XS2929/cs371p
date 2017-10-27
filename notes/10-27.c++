@@ -14,4 +14,3 @@ int main () {
 void g (int&)
 void h (const int&)
 void m (int&&)      // r-value reference
-
