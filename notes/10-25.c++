@@ -14,10 +14,12 @@ A(A)
 template <typename T>
 class vector {
     private:
-        T* _b;
-        T* _e;
+        T* _b = nullptr;
+        T* _e = nullptr;
 
     public:
+        vector () = default;
+
         vector (const vector& rhs) { // not ok
             _b = rhs._b;
             _e = rhs._e;}
@@ -49,6 +51,9 @@ class vector {
             copy(rhs._b, rhs._e, _b);
 */
             return *this;}
+
+        ~vector () {
+            delete [] _b;}
 
 void f (vector<int> z) { // now works well
     ...}
