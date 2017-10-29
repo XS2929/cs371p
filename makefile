@@ -187,6 +187,12 @@ sync:
     --include "TestAllocator.out"            \
     --exclude "*"                            \
     ../../projects/c++/allocator/ projects/allocator
+	@rsync -r -t -u -v --delete              \
+    --include "RunDarwin.c++"                \
+    --include "RunDarwin.in"                 \
+    --include "RunDarwin.out"                \
+    --exclude "*"                            \
+    ../../projects/c++/darwin/ projects/darwin
 
 travis:
 	cd examples; make travis
