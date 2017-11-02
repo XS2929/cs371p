@@ -35,23 +35,3 @@ for (int i = 0; i != s; ++i) // O(n)
 for (int i = 0; i != s; ++i) // O(n)
     x.destroy(a + i);        // O(1); ~T()
 x.deallocate(a, s);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
