@@ -42,7 +42,9 @@ FILES :=                    \
     FunctionOverloading     \
     Move                    \
     Vector5                 \
-    Vector6
+    Vector6                 \
+    Vector7                 \
+    Vector8
 
 ifeq ($(shell uname), Darwin)                                           # Apple
     CXX          := g++
