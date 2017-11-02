@@ -167,6 +167,7 @@ sync:
     --include "Move.c++"                     \
     --include "Vector5.c++"                  \
     --include "Vector6.c++"                  \
+    --include "Memory.h"                     \
     --include "Vector7.c++"                  \
     --include "Vector8.c++"                  \
     --exclude "*"                            \
