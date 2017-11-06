@@ -170,6 +170,7 @@ sync:
     --include "Memory.h"                     \
     --include "Vector7.c++"                  \
     --include "Vector8.c++"                  \
+    --include "Classes.c++"                  \
     --exclude "*"                            \
     ../../examples/c++/ examples
 	@rsync -r -t -u -v --delete              \

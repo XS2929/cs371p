@@ -44,7 +44,8 @@ FILES :=                    \
     Vector5                 \
     Vector6                 \
     Vector7                 \
-    Vector8
+    Vector8                 \
+    Classes
 
 ifeq ($(shell uname), Darwin)                                           # Apple
     CXX          := g++
