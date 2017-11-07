@@ -171,6 +171,7 @@ sync:
     --include "Vector7.c++"                  \
     --include "Vector8.c++"                  \
     --include "Classes.c++"                  \
+    --include "MethodOverriding1.c++"        \
     --exclude "*"                            \
     ../../examples/c++/ examples
 	@rsync -r -t -u -v --delete              \

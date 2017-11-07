@@ -45,7 +45,8 @@ FILES :=                    \
     Vector6                 \
     Vector7                 \
     Vector8                 \
-    Classes
+    Classes                 \
+    MethodOverriding
 
 ifeq ($(shell uname), Darwin)                                           # Apple
     CXX          := g++
