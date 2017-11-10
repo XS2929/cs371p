@@ -27,8 +27,8 @@ struct B : A {
         return "B::h";}};
 
 struct C : A {
-    using A::g;
-    using A::h;
+   using A::g;
+   using A::h;
 
     std::string f (int) {
         return "C::f";}

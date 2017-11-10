@@ -171,9 +171,15 @@ sync:
     --include "Vector7.c++"                  \
     --include "Vector8.c++"                  \
     --include "Classes.c++"                  \
+    --include "Shapes1.c++"                  \
+    --include "Shapes2.c++"                  \
     --include "MethodOverriding1.c++"        \
     --exclude "*"                            \
     ../../examples/c++/ examples
+	@rsync -r -t -u -v --delete              \
+    --include "MethodOverriding1.java"       \
+    --exclude "*"                            \
+    ../../examples/java/ examples
 	@rsync -r -t -u -v --delete              \
     --include "Darwin.uml"                   \
     --exclude "*"                            \
