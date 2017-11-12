@@ -1,0 +1,14 @@
+@startuml
+Vector ^-- Stack
+
+class Vector {
+    + void add ()
+    + void removeElement ()
+    }
+
+class Stack {
+    + void push ()
+    + void pop ()
+    }
+
+@enduml

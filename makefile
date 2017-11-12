@@ -182,6 +182,9 @@ sync:
     ../../examples/java/ examples
 	@rsync -r -t -u -v --delete              \
     --include "Darwin.uml"                   \
+    --include "Stack1.uml"                   \
+    --include "Stack2.uml"                   \
+    --include "Shapes1.uml"                  \
     --exclude "*"                            \
     ../../examples/uml/ examples
 	@rsync -r -t -u -v --delete              \

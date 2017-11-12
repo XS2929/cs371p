@@ -1,0 +1,17 @@
+@startuml
+Shape ^-- Circle
+
+class Shape {
+    - int x
+    - int y
+    + double area ()
+    + void move (int, int)
+    }
+
+class Circle {
+    - int r
+    + double area ()
+    + int radius (int)
+    }
+
+@enduml
