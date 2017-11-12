@@ -4,14 +4,16 @@ Shape ^-- Circle
 class Shape {
     - int x
     - int y
-    + double area ()
+    + Shape (int x, int y)
+    + double area () const
     + void move (int, int)
     }
 
 class Circle {
     - int r
-    + double area ()
-    + int radius (int)
+    + Circle (int x, int y, int r)
+    + double area () const
+    + int radius (int) const
     }
 
 @enduml
