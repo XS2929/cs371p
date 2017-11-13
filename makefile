@@ -179,6 +179,7 @@ sync:
     ../../examples/c++/ examples
 	@rsync -r -t -u -v --delete              \
     --include "MethodOverriding1.java"       \
+    --include "MethodOverriding2.java"       \
     --exclude "*"                            \
     ../../examples/java/ examples
 	@rsync -r -t -u -v --delete              \
