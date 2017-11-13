@@ -48,7 +48,8 @@ FILES :=                    \
     Classes                 \
     Shapes1                 \
     Shapes2                 \
-    MethodOverriding1
+    MethodOverriding1       \
+    MethodOverriding2
 
 ifeq ($(shell uname), Darwin)                                           # Apple
     CXX          := g++
