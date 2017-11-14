@@ -49,6 +49,8 @@ FILES :=                    \
     Shapes1                 \
     Shapes2                 \
     MethodOverriding1       \
+    Shapes3                 \
+    Shapes4                 \
     MethodOverriding2
 
 ifeq ($(shell uname), Darwin)                                           # Apple
