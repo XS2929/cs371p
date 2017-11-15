@@ -1,0 +1,17 @@
+.DS_Store
+*.dSYM
+*.gcda
+*.gcno
+*.gcov
+*.plist
+darwin-tests
+Doxyfile
+Icon?
+RunLifeCell
+RunLifeCell.tmp
+RunLifeConway
+RunLifeConway.tmp
+RunLifeFredkin
+RunLifeFredkin.tmp
+TestLife
+TestLife.tmp

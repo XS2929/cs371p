@@ -99,6 +99,7 @@ push:
 	git add projects/collatz
 	git add projects/allocator
 	git add projects/darwin
+	git add projects/life
 	git commit -m "another commit"
 	git push
 	git status
@@ -216,6 +217,15 @@ sync:
     --include "RunDarwin.out"                \
     --exclude "*"                            \
     ../../projects/c++/darwin/ projects/darwin
+	@rsync -r -t -u -v --delete              \
+    --include "RunLifeConway.in"             \
+    --include "RunLifeConway.out"            \
+    --include "RunLifeFredkin.in"            \
+    --include "RunLifeFredkin.out"           \
+    --include "RunLifeCell.in"               \
+    --include "RunLifeCell.out"              \
+    --exclude "*"                            \
+    ../../projects/c++/life/ projects/life
 
 travis:
 	cd examples; make travis
