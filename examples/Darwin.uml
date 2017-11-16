@@ -1,10 +1,10 @@
 @startuml
 Darwin   *- Creature
 Creature o- Species
-Species  *- Program
 
 class Darwin {
-    - vector<Creature> _cs
+    - vector<Creature> _creatures
+    - vector<vector<Creature*>> _grid
     + read ()
     + eval ()
     + print ()
@@ -18,7 +18,7 @@ class Creature {
     }
 
 class Species {
-    - Program _p
+    - pair<int, int> _p
     + execute ()
     }
 
