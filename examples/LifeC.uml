@@ -1,0 +1,41 @@
+@startuml
+Life         *-  Cell
+Cell         *-  AbstractCell
+AbstractCell ^-- ConwayCell
+AbstractCell ^-- FredkinCell
+
+class Life<T> {
+    - vector<vector<T>> _grid
+    + read ()
+    + eval ()
+    + print ()
+    }
+
+class Cell {
+    - AbstractCell* _p
+    + Cell (const Cell&)
+    + Cell (Cell&&)
+    + Cell& operator = (const Cell&)
+    + Cell& operator = (Cell&&)
+    + ~Cell ()
+    + evolve ()
+    }
+
+abstract class AbstractCell {
+    - bool _state
+    + {abstract} AbstractCell* clone () const
+    + {abstract} evolve ()
+    }
+
+class ConwayCell {
+    + ConwayCell* clone () const
+    + evolve ()
+    }
+
+class FredkinCell {
+    - int _age
+    + FredkinCell* clone () const
+    + evolve ()
+    }
+
+@enduml
