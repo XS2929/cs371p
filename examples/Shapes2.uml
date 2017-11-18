@@ -1,0 +1,24 @@
+@startuml
+Shape ^-- Circle
+
+class Shape {
+    - int x
+    - int y
+    - virtual bool equals (const Shape&) const;
+    + friend bool operator == (const Shape&, const Shape&);
+    + Shape (int x, int y)
+    + virtual ~Shape ()
+    + virtual double area () const
+    + void move (int x, int y)
+    }
+
+class Circle {
+    - int r
+    - virtual bool equals (const Shape&) const;
+    + friend bool operator == (const Circle&, const Circle&);
+    + Circle (int x, int y, int r)
+    + double area () const
+    + int radius () const
+    }
+
+@enduml

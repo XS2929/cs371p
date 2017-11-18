@@ -193,6 +193,7 @@ sync:
     --include "LifeCC.uml"                   \
     --include "LifeFC.uml"                   \
     --include "LifeC.uml"                    \
+    --include "Shapes2.uml"                  \
     --exclude "*"                            \
     ../../examples/uml/ examples
 	@rsync -r -t -u -v --delete              \
