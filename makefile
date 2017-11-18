@@ -172,11 +172,11 @@ sync:
     --include "Vector7.c++"                  \
     --include "Vector8.c++"                  \
     --include "Classes.c++"                  \
-    --include "Shapes1a.c++"                 \
-    --include "Shapes1b.c++"                 \
+    --include "Shapes1.c++"                  \
+    --include "Shapes1GT.c++"                \
     --include "MethodOverriding1.c++"        \
-    --include "Shapes2a.c++"                 \
-    --include "Shapes2b.c++"                 \
+    --include "Shapes2.c++"                  \
+    --include "Shapes2GT.c++"                \
     --include "MethodOverriding2.c++"        \
     --exclude "*"                            \
     ../../examples/c++/ examples

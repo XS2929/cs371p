@@ -46,11 +46,11 @@ FILES :=                    \
     Vector7                 \
     Vector8                 \
     Classes                 \
-    Shapes1a                \
-    Shapes1b                \
+    Shapes1                 \
+    Shapes1GT               \
     MethodOverriding1       \
-    Shapes2a                \
-    Shapes2b                \
+    Shapes2                 \
+    Shapes2GT               \
     MethodOverriding2
 
 ifeq ($(shell uname), Darwin)                                           # Apple
