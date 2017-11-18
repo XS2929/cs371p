@@ -190,10 +190,11 @@ sync:
     --include "Stack1.uml"                   \
     --include "Stack2.uml"                   \
     --include "Shapes1.uml"                  \
+    --include "Shapes2.uml"                  \
     --include "LifeCC.uml"                   \
     --include "LifeFC.uml"                   \
     --include "LifeC.uml"                    \
-    --include "Shapes2.uml"                  \
+    --include "Shapes3.uml"                  \
     --exclude "*"                            \
     ../../examples/uml/ examples
 	@rsync -r -t -u -v --delete              \

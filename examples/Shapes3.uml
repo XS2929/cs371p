@@ -1,14 +1,15 @@
 @startuml
 Shape ^-- Circle
 
-class Shape {
+class AbstractShape {
     - int x
     - int y
-    - virtual bool equals (const Shape&) const;
+    - {abstract} virtual bool equals (const Shape&) const;
     + friend bool operator == (const Shape&, const Shape&);
     + Shape (int x, int y)
     + virtual ~Shape ()
-    + virtual double area () const
+    + {abstract} virtual double area () const
+    + {abstract} virtual AbstractShape* clone () const
     + void move (int x, int y)
     }
 
@@ -18,6 +19,7 @@ class Circle {
     + friend bool operator == (const Circle&, const Circle&);
     + Circle (int x, int y, int r)
     + double area () const
+    + Circle* clone () const
     + int radius () const
     }
 
