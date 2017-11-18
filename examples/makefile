@@ -10,8 +10,8 @@ FILES :=                    \
     IsPrime2                \
     Exceptions              \
     Types                   \
-    Incr1                   \
-    Incr2                   \
+    Incr                    \
+    IncrGT                  \
     Operators               \
     Arguments               \
     Equal1                  \

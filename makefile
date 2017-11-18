@@ -135,8 +135,8 @@ sync:
     --include "Exceptions.c++"               \
     --include "Types.c++"                    \
     --include "Operators.c++"                \
-    --include "Incr1.c++"                    \
-    --include "Incr2.c++"                    \
+    --include "Incr.c++"                     \
+    --include "IncrGT.c++"                   \
     --include "Variables.c++"                \
     --include "Arguments.c++"                \
     --include "Equal1.c++"                   \
