@@ -1,6 +1,6 @@
-// -----------
-// Shapes1.c++
-// -----------
+// ------------
+// Shapes1a.c++
+// ------------
 
 #include <cassert>  // assert
 #include <iostream> // cout, endl, istream, ostream
@@ -179,7 +179,7 @@ void test () {
     }}
 
 int main () {
-    cout << "Shapes1.c++" << endl;
+    cout << "Shapes1a.c++" << endl;
     test();
     cout << "Done." << endl;
     return 0;}

@@ -1,6 +1,6 @@
-// -----------
-// Shapes2.c++
-// -----------
+// ------------
+// Shapes1b.c++
+// ------------
 
 #include <iostream> // istream, ostream
 #include <utility>  // !=
