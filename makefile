@@ -139,8 +139,8 @@ sync:
     --include "IncrGT.c++"                   \
     --include "Variables.c++"                \
     --include "Arguments.c++"                \
-    --include "Equal1.c++"                   \
-    --include "Equal2.c++"                   \
+    --include "Equal.c++"                    \
+    --include "EqualGT.c++"                  \
     --include "Iterators.c++"                \
     --include "Consts.c++"                   \
     --include "Factorial.c++"                \

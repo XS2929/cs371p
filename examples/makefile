@@ -14,12 +14,12 @@ FILES :=                    \
     IncrGT                  \
     Operators               \
     Arguments               \
-    Equal1                  \
-    Equal2                  \
+    Equal                   \
+    EqualGT                 \
     Iterators               \
     Consts                  \
-    Factorial1              \
-    Factorial2              \
+    Factorial               \
+    FactorialGT             \
     Fill1                   \
     Fill2                   \
     Iota1                   \
