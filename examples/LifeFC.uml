@@ -1,5 +1,5 @@
 @startuml
-Life         *-  FredkinCell
+Life         *-  "1" FredkinCell
 AbstractCell ^-- ConwayCell
 AbstractCell ^-- FredkinCell
 

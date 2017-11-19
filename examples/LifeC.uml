@@ -1,6 +1,6 @@
 @startuml
-Life         *-  Cell
-Cell         *-  AbstractCell
+Life         *-  "*" Cell
+Cell         *-  "1" AbstractCell
 AbstractCell ^-- ConwayCell
 AbstractCell ^-- FredkinCell
 

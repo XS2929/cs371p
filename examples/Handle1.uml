@@ -1,0 +1,44 @@
+@startuml
+Handle        ^-- Shape
+Shape         *-  "1" AbstractShape
+AbstractShape ^-- Circle
+
+class Handle<T> {
+    - T* _p
+    + friend bool operator == (const Handle&, const Handle&);
+    + Handle (T*)
+    + Handle (const Handle&)
+    + Handle (Handle&&)
+    + Handle& operator = (const Handle&)
+    + Handle& operator = (Handle&&)
+    + ~Handle ()
+    }
+
+class Shape {
+    + double area () const
+    + void move (int x, int y)
+    }
+
+class AbstractShape {
+    - int x
+    - int y
+    - {abstract} virtual bool equals (const Shape&) const;
+    + friend bool operator == (const Shape&, const Shape&);
+    + Shape (int x, int y)
+    + virtual ~Shape ()
+    + {abstract} virtual double area () const
+    + {abstract} virtual AbstractShape* clone () const
+    + void move (int x, int y)
+    }
+
+class Circle {
+    - int r
+    - bool equals (const Shape&) const;
+    + friend bool operator == (const Circle&, const Circle&);
+    + Circle (int x, int y, int r)
+    + double area () const
+    + Circle* clone () const
+    + int radius () const
+    }
+
+@enduml
