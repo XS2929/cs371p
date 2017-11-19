@@ -28,15 +28,15 @@ define neighborhood
     south
     all diagonals
 
-if the cell is alive and has three live neighbors
+if the cell is alive and has two or three live neighbors
     cell stays alive
 else
-    dies
+    cell dies
 
-if the cell is dead and two OR three neighbors are alive
+if the cell is dead and three neighbors are alive
     cell becomes alive
 else
-    stats dead
+    cell stays dead
 */
 
 /*
