@@ -9,7 +9,6 @@ class Circle : public AbstractShape {
     Circle* clone () const {
         return new Circle(*this);}}
 
-
 AbstractShape* p = new Circle(...);
 AbstractShape* q = p->clone();
 
@@ -49,9 +48,6 @@ class Shape {
 
         ~Shape () {
             delete _p;}
-
-
-
 
 {
 Shape x = new Circle(...);
