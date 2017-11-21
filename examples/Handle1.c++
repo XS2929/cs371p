@@ -4,7 +4,7 @@
 
 #include <algorithm> // swap
 #include <cassert>   // assert
-#include <iostream>  // cout, endl
+#include <iostream>  // cout, endl, istream, ostream
 #include <utility>   // !=
 
 using namespace std;
@@ -14,10 +14,10 @@ class AbstractShape {
     friend bool operator == (const AbstractShape& lhs, const AbstractShape& rhs) {
         return lhs.equals(rhs);}
 
-    friend std::istream& operator >> (std::istream& lhs, AbstractShape& rhs) {
+    friend istream& operator >> (istream& lhs, AbstractShape& rhs) {
         return rhs.read(lhs);}
 
-    friend std::ostream& operator << (std::ostream& lhs, const AbstractShape& rhs) {
+    friend ostream& operator << (ostream& lhs, const AbstractShape& rhs) {
         return rhs.write(lhs);}
 
     private:
@@ -27,11 +27,9 @@ class AbstractShape {
     protected:
         AbstractShape& operator = (const AbstractShape&) = default;
 
-        virtual bool equals (const AbstractShape& rhs) const = 0;
-
-        virtual std::istream& read (std::istream& in) = 0;
-
-        virtual std::ostream& write (std::ostream& out) const = 0;
+        virtual bool     equals (const AbstractShape& rhs) const = 0;
+        virtual istream& read   (istream&             in)        = 0;
+        virtual ostream& write  (ostream&             out) const = 0;
 
     public:
         AbstractShape (int x, int y) :
@@ -39,13 +37,10 @@ class AbstractShape {
                 _y (y)
             {}
 
-        AbstractShape (const AbstractShape&) = default;
+        AbstractShape          (const AbstractShape&) = default;
+        virtual ~AbstractShape ()                     = default;
 
-        virtual ~AbstractShape ()
-            {}
-
-        virtual double area () const = 0;
-
+        virtual double         area  () const = 0;
         virtual AbstractShape* clone () const = 0;
 
         void move (int x, int y) {
@@ -55,26 +50,35 @@ class AbstractShape {
 bool AbstractShape::equals (const AbstractShape& rhs) const {
     return (_x == rhs._x) && (_y == rhs._y);}
 
-std::istream& AbstractShape::read (std::istream& in) {
+istream& AbstractShape::read (istream& in) {
     return in >> _x >> _y;}
 
-std::ostream& AbstractShape::write (std::ostream& out) const {
+ostream& AbstractShape::write (ostream& out) const {
     return out << _x << " " << _y;}
 
 class Circle : public AbstractShape {
+    friend bool operator == (const Circle& lhs, const Circle& rhs) {
+        return lhs.AbstractShape::equals(rhs) && (lhs._r == rhs._r);}
+
+    friend istream& operator >> (istream& lhs, Circle& rhs) {
+        return rhs.read(lhs);}
+
+    friend ostream& operator << (ostream& lhs, const Circle& rhs) {
+        return rhs.write(lhs);}
+
     private:
         int _r;
 
     protected:
-        virtual bool equals (const AbstractShape& rhs) const {
+        bool equals (const AbstractShape& rhs) const override {
             if (const Circle* const p = dynamic_cast<const Circle*>(&rhs))
                 return AbstractShape::equals(*p) && (_r == p->_r);
             return false;}
 
-        virtual std::istream& read (std::istream& in) {
+        istream& read (istream& in) override {
             return AbstractShape::read(in) >> _r;}
 
-        virtual std::ostream& write (std::ostream& out) const {
+        ostream& write (ostream& out) const override {
             return AbstractShape::write(out) << " " << _r;}
 
     public:
@@ -83,14 +87,14 @@ class Circle : public AbstractShape {
                 _r            (r)
             {}
 
-                Circle     (const Circle&) = default;
-               ~Circle     ()              = default;
+        Circle             (const Circle&) = default;
+        ~Circle            ()              = default;
         Circle& operator = (const Circle&) = default;
 
-        virtual double area () const {
+        double area () const override {
             return 3.14 * _r * _r;}
 
-        virtual Circle* clone () const {
+        Circle* clone () const override {
             return new Circle(*this);}
 
         int radius () const {

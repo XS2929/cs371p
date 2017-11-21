@@ -1,5 +1,5 @@
 @startuml
-Life         *-  "1" FredkinCell
+Life         *-  "*" FredkinCell
 AbstractCell ^-- ConwayCell
 AbstractCell ^-- FredkinCell
 
@@ -13,8 +13,8 @@ class Life<T> {
 abstract class AbstractCell {
     - bool _state
     + virtual ~AbstractCell ()
-    + {abstract} virtual AbstractCell* clone () const
-    + {abstract} virtual evolve ()
+    + {abstract} virtual AbstractCell* clone () const = 0
+    + {abstract} virtual evolve () = 0
     }
 
 class ConwayCell {

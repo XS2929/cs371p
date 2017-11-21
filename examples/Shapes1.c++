@@ -60,10 +60,10 @@ class Circle : public Shape {
     friend bool operator == (const Circle& lhs, const Circle& rhs) {
         return (static_cast<const Shape&>(lhs) == rhs) && (lhs._r == rhs._r);}
 
-    friend std::istream& operator >> (std::istream& lhs, Circle& rhs) {
+    friend istream& operator >> (istream& lhs, Circle& rhs) {
         return lhs >> static_cast<Shape&>(rhs) >> rhs._r;}
 
-    friend std::ostream& operator << (std::ostream& lhs, const Circle& rhs) {
+    friend ostream& operator << (ostream& lhs, const Circle& rhs) {
         return lhs << static_cast<const Shape&>(rhs) << " " << rhs._r;}
 
     private:

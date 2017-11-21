@@ -14,10 +14,10 @@ class Shape {
     friend bool operator == (const Shape& lhs, const Shape& rhs) {
         return lhs.equals(rhs);}
 
-    friend std::istream& operator >> (std::istream& lhs, Shape& rhs) {
+    friend istream& operator >> (istream& lhs, Shape& rhs) {
         return rhs.read(lhs);}
 
-    friend std::ostream& operator << (std::ostream& lhs, const Shape& rhs) {
+    friend ostream& operator << (ostream& lhs, const Shape& rhs) {
         return rhs.write(lhs);}
 
     private:
@@ -28,10 +28,10 @@ class Shape {
         virtual bool equals (const Shape& rhs) const {
             return (_x == rhs._x) && (_y == rhs._y);}
 
-        virtual std::istream& read (std::istream& in) {
+        virtual istream& read (istream& in) {
             return in >> _x >> _y;}
 
-        virtual std::ostream& write (std::ostream& out) const {
+        virtual ostream& write (ostream& out) const {
             return out << _x << " " << _y;}
 
     public:
@@ -53,12 +53,12 @@ class Shape {
 
 class Circle : public Shape {
     friend bool operator == (const Circle& lhs, const Circle& rhs) {
-        return lhs.equals(rhs);}
+        return lhs.Shape::equals(rhs) && (lhs._r == rhs._r);}
 
-    friend std::istream& operator >> (std::istream& lhs, Circle& rhs) {
+    friend istream& operator >> (istream& lhs, Circle& rhs) {
         return rhs.read(lhs);}
 
-    friend std::ostream& operator << (std::ostream& lhs, const Circle& rhs) {
+    friend ostream& operator << (ostream& lhs, const Circle& rhs) {
         return rhs.write(lhs);}
 
     private:
@@ -70,10 +70,10 @@ class Circle : public Shape {
                 return Shape::equals(*p) && (_r == p->_r);
             return false;}
 
-        std::istream& read (std::istream& in) override {
+        istream& read (istream& in) override {
             return Shape::read(in) >> _r;}
 
-        std::ostream& write (std::ostream& out) const override {
+        ostream& write (ostream& out) const override {
             return Shape::write(out) << " " << _r;}
 
     public:

@@ -24,8 +24,8 @@ class Cell {
 abstract class AbstractCell {
     - bool _state
     + virtual ~AbstractCell ()
-    + {abstract} virtual AbstractCell* clone () const
-    + {abstract} virtual evolve ()
+    + {abstract} virtual AbstractCell* clone () const = 0
+    + {abstract} virtual evolve () = 0
     }
 
 class ConwayCell {
