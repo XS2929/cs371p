@@ -35,7 +35,7 @@ install:
 before_script:
     - date
     - uname -a
-    - printenv | sort
+    - printenv |  sort
     - cat makefile
     - make versions
 
