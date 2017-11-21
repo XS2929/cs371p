@@ -178,6 +178,10 @@ sync:
     --include "Shapes2.c++"                  \
     --include "Shapes2GT.c++"                \
     --include "MethodOverriding2.c++"        \
+    --include "Shapes3.c++"                  \
+    --include "Shapes3GT.c++"                \
+    --include "Handle1.c++"                  \
+    --include "Handle1GT.c++"                \
     --exclude "*"                            \
     ../../examples/c++/ examples
 	@rsync -r -t -u -v --delete              \
