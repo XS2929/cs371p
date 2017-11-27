@@ -72,7 +72,7 @@ class Circle : public AbstractShape {
     protected:
         bool equals (const AbstractShape& rhs) const override {
             if (const Circle* const p = dynamic_cast<const Circle*>(&rhs))
-                return AbstractShape::equals(*p) && (_r == p->_r);
+                return AbstractShape::equals(rhs) && (_r == p->_r);
             return false;}
 
         istream& read (istream& in) override {
@@ -139,8 +139,9 @@ class Handle {
                 _p ((rhs._p == nullptr) ? nullptr : rhs._p->clone())
             {}
 
-       Handle& operator = (Handle rhs) {
-            swap(rhs);
+        Handle& operator = (const Handle& rhs) {
+            Handle that(rhs);
+            swap(that);
             return *this;}
 
         ~Handle () {

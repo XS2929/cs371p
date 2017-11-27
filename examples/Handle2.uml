@@ -1,5 +1,21 @@
 @startuml
+Handle        *-  "1" AbstractShape
 AbstractShape ^-- Circle
+
+class Handle<T> {
+    - T* _p
+    + friend bool operator == (const Handle&, const Handle&);
+    + Handle (T*)
+    + Handle (const Handle&)
+    + Handle (Handle&&)
+    + Handle& operator = (const Handle&)
+    + Handle& operator = (Handle&&)
+    + ~Handle ()
+    + T& operator * () const
+    + T* operator -> () const
+    + T* get () const
+    +
+    }
 
 class AbstractShape {
     - int x

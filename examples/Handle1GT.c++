@@ -74,7 +74,7 @@ class Circle : public AbstractShape {
     protected:
         bool equals (const AbstractShape& rhs) const override {
             if (const Circle* const p = dynamic_cast<const Circle*>(&rhs))
-                return AbstractShape::equals(*p) && (_r == p->_r);
+                return AbstractShape::equals(rhs) && (_r == p->_r);
             return false;}
 
         istream& read (istream& in) override {

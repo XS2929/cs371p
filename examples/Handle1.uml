@@ -22,7 +22,7 @@ class Shape {
 class AbstractShape {
     - int x
     - int y
-    - {abstract} virtual bool equals (const Shape&) const;
+    # {abstract} virtual bool equals (const Shape&) const;
     + friend bool operator == (const Shape&, const Shape&);
     + Shape (int x, int y)
     + virtual ~Shape ()
@@ -33,7 +33,7 @@ class AbstractShape {
 
 class Circle {
     - int r
-    - bool equals (const Shape&) const;
+    # bool equals (const Shape&) const;
     + friend bool operator == (const Circle&, const Circle&);
     + Circle (int x, int y, int r)
     + double area () const
