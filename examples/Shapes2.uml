@@ -1,5 +1,5 @@
 @startuml
-Shape ^-- Circle
+Shape <|-- Circle
 
 class Shape {
     - int x

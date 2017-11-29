@@ -1,7 +1,7 @@
 @startuml
-Life         *-  "*" ConwayCell
-AbstractCell ^-- ConwayCell
-AbstractCell ^-- FredkinCell
+Life         *-   "*" ConwayCell
+AbstractCell <|-- ConwayCell
+AbstractCell <|-- FredkinCell
 
 class Life<T> {
     - vector<vector<T>> _grid

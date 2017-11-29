@@ -203,6 +203,7 @@ sync:
     --include "Shapes3.uml"                  \
     --include "Handle1.uml"                  \
     --include "Handle2.uml"                  \
+    --include "Handle3.uml"                  \
     --exclude "*"                            \
     ../../examples/uml/ examples
 	@rsync -r -t -u -v --delete              \

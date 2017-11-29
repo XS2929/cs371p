@@ -1,5 +1,31 @@
 @startuml
+Handle        o-   "1" count
+count         *-   "1" AbstractShape
+Handle        <|-- Shape
 AbstractShape <|-- Circle
+
+class Handle<T> {
+    - count* _p
+    + friend bool operator == (const Handle&, const Handle&);
+    + Handle (T*)
+    + Handle (const Handle&)
+    + Handle (Handle&&)
+    + Handle& operator = (const Handle&)
+    + Handle& operator = (Handle&&)
+    + ~Handle ()
+    }
+
+class count {
+	- int _c
+	- T*  _q
+	+ count (T*)
+	+ ~count ()
+	}
+
+class Shape {
+    + double area () const
+    + void move (int x, int y)
+    }
 
 class AbstractShape {
     - int x

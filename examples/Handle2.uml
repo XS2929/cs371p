@@ -1,6 +1,6 @@
 @startuml
-Handle        *-  "1" AbstractShape
-AbstractShape ^-- Circle
+Handle        *-   "1" AbstractShape
+AbstractShape <|-- Circle
 
 class Handle<T> {
     - T* _p
