@@ -53,7 +53,9 @@ FILES :=                    \
     Shapes2GT               \
     MethodOverriding2       \
     Handle1                 \
-    Handle1GT
+    Handle1GT               \
+    Handle2                 \
+    Handle2GT
 
 %: %.c++
 	g++-5 -fprofile-arcs -ftest-coverage -pedantic -std=c++14 -Wall -Weffc++ $< -o $@ -lgtest -lgtest_main -pthread

@@ -182,6 +182,8 @@ sync:
     --include "Shapes3GT.c++"                \
     --include "Handle1.c++"                  \
     --include "Handle1GT.c++"                \
+    --include "Handle2.c++"                  \
+    --include "Handle2GT.c++"                \
     --exclude "*"                            \
     ../../examples/c++/ examples
 	@rsync -r -t -u -v --delete              \
