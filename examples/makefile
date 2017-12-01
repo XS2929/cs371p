@@ -55,7 +55,9 @@ FILES :=                    \
     Handle1                 \
     Handle1GT               \
     Handle2                 \
-    Handle2GT
+    Handle2GT               \
+    Handle3                 \
+    Handle3GT
 
 %: %.c++
 	g++-5 -fprofile-arcs -ftest-coverage -pedantic -std=c++14 -Wall -Weffc++ $< -o $@ -lgtest -lgtest_main -pthread
