@@ -57,7 +57,9 @@ FILES :=                    \
     Handle2                 \
     Handle2GT               \
     Handle3                 \
-    Handle3GT
+    Handle3GT               \
+    UniquePtr               \
+    UniquePtrGT
 
 %: %.c++
 	g++-5 -fprofile-arcs -ftest-coverage -pedantic -std=c++14 -Wall -Weffc++ $< -o $@ -lgtest -lgtest_main -pthread

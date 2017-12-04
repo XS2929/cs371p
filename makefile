@@ -186,6 +186,8 @@ sync:
     --include "Handle2GT.c++"                \
     --include "Handle3.c++"                  \
     --include "Handle3GT.c++"                \
+    --include "UniquePtr.c++"                \
+    --include "UniquePtrGT.c++"              \
     --exclude "*"                            \
     ../../examples/c++/ examples
 	@rsync -r -t -u -v --delete              \
