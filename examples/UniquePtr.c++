@@ -5,7 +5,6 @@
 // http://en.cppreference.com/w/cpp/memory/unique_ptr
 
 #include <cassert>  // assert
-#include <complex>  // complex
 #include <iostream> // cout, endl
 #include <memory>   // unique_ptr
 

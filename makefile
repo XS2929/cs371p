@@ -188,6 +188,8 @@ sync:
     --include "Handle3GT.c++"                \
     --include "UniquePtr.c++"                \
     --include "UniquePtrGT.c++"              \
+    --include "SharedPtr.c++"                \
+    --include "SharedPtrGT.c++"              \
     --exclude "*"                            \
     ../../examples/c++/ examples
 	@rsync -r -t -u -v --delete              \
