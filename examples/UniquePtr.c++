@@ -4,9 +4,10 @@
 
 // http://en.cppreference.com/w/cpp/memory/unique_ptr
 
-#include <cassert>  // assert
-#include <iostream> // cout, endl
-#include <memory>   // unique_ptr
+#include <cassert>    // assert
+#include <functional> // function
+#include <iostream>   // cout, endl
+#include <memory>     // unique_ptr
 
 using namespace std;
 
